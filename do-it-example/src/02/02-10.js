@@ -35,40 +35,40 @@ urgentWork();
 // ES6의 비동기 함수 처리
 // 콜백 지옥을 해결하기 위해 Promise 클래스 함수를 구현
 // 이는 실제 Promise가 아닌 이해를 돕기 위한 클래스
-class Promise {
-    constructor(fn) {
-        const resolve = (...args) => {
-            if (typeof this.onDone === 'function') {
-                this.onDone(...args);
-            }
-            if (typeof this.onComplete === 'function') {
-                this.onComplete();
-            }
-        }
-        const reject = (...args) => {
-            if (typeof this.onError === 'function') {
-                this.onError(...args);
-            }
-            if (typeof this.onComplete === 'function') {
-                this.onComplete();
-            }
-        }
-        fn(resolve, reject);
-    }
-    then(onDone, onError) {
-        this.onDone = onDone;
-        this.onError = onError;
-        return this;
-    }
-    catch(onError) {
-        this.onError = onError;
-        return this;
-    }
-    finally(onComplete) {
-        this.onComplete = onComplete;
-        return this;
-    }
-}
+// class Promise {
+//     constructor(fn) {
+//         const resolve = (...args) => {
+//             if (typeof this.onDone === 'function') {
+//                 this.onDone(...args);
+//             }
+//             if (typeof this.onComplete === 'function') {
+//                 this.onComplete();
+//             }
+//         }
+//         const reject = (...args) => {
+//             if (typeof this.onError === 'function') {
+//                 this.onError(...args);
+//             }
+//             if (typeof this.onComplete === 'function') {
+//                 this.onComplete();
+//             }
+//         }
+//         fn(resolve, reject);
+//     }
+//     then(onDone, onError) {
+//         this.onDone = onDone;
+//         this.onError = onError;
+//         return this;
+//     }
+//     catch(onError) {
+//         this.onError = onError;
+//         return this;
+//     }
+//     finally(onComplete) {
+//         this.onComplete = onComplete;
+//         return this;
+//     }
+// }
 
 const pWork1 = () => 
     new Promise(resolve => {

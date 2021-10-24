@@ -70,11 +70,31 @@ class Promise {
     }
 }
 
-const pWork1 = () => {
-    new Promise((resolve) => {
-        setTimeout(() => resolve('작업1 완료!'), 100);
+const pWork1 = () => 
+    new Promise(resolve => {
+        setTimeout(() => resolve('작업1-p 완료!'), 100);
+    });
+const pWork2 = () => 
+    new Promise(resolve => {
+        setTimeout(() => resolve('작업2-p 완료!'), 200);
+    });
+const pWork3 = () => 
+    new Promise(resolve => {
+        setTimeout(() => resolve('작업3-p 완료!'), 300);
+    });
+
+const nextWorkDone = (msg1) => {
+    console.log('p done after 100ms: ' + msg1);
+    return pWork2();
+}
+
+pWork1()
+    .then(nextWorkDone)
+    .then((msg2) => {
+        console.log('p done after 200ms: ' + msg2);
+        return pWork3();
     })
-}
-const pWork2 = () => {
-    new Promise((resolve) )
-}
+    .then((msg3) => {
+        console.log('p done after 600ms: ' + msg3);
+    });
+urgentWork();

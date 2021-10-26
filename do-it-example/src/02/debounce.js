@@ -1,6 +1,6 @@
 // 디바운스
 // 어떤 내용을 입력하다가 특정 시간 동안 대기하고 있으면 마지막에 입력된 내용을 바탕으로 서버 요청을 하는 방법
-function debounce(func, delay) {
+export function debounce(func, delay) {
     let inDebounce;
     return function(...args) {
         if (inDebounce) {

@@ -1,26 +1,12 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
-class App extends Component {
+import TodaysPlan from './03/02/TodaysPlan';
+
+class App extends React.Component {
   render() {
     return (
-      <div className="App">
-        <h1 className="title">두잇! 리액트 시작하기</h1>
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className='body'>
+        <TodaysPlan />
       </div>
     );
   }
